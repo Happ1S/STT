@@ -7,12 +7,12 @@ import os
 
 exit()'''
 
-def record():
+def record(seconds):
     CHUNK = 1024
     FORMAT = pyaudio.paInt16
     CHANNELS = 2
     RATE = 44100
-    RECORD_SECONDS = 5
+    RECORD_SECONDS = seconds
     WAVE_OUTPUT_FILENAME = "voice.wav"
 
     p = pyaudio.PyAudio()
@@ -44,3 +44,4 @@ def record():
     wf.setframerate(RATE)
     wf.writeframes(b''.join(frames))
     wf.close()
+
